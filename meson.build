@@ -21,8 +21,6 @@ project('cpp-exe', 'cpp',
     default_options : 
     [
         'buildtype=release',
-        'b_coverage=true',
-        'b_lundef=true',
         'werror=true',
         'optimization=3',
         'warning_level=3',
@@ -57,12 +55,13 @@ if cc.get_argument_syntax() == 'gcc'
             [
             '-Wunreachable-code', 
             '-Wmissing-declarations',
-            '-Wredundant-decls',
+            '-Wmissing-prototypes',
             '-Wundef',
             '-Wwrite-strings',
             '-Wformat',
             '-Wformat-nonliteral',
             '-Wformat-security',
+            '-Wold-style-definition',
             '-Winit-self',
             '-Wmissing-include-dirs',
             '-Waddress',
@@ -71,6 +70,7 @@ if cc.get_argument_syntax() == 'gcc'
             '-Wno-parentheses',
             '-Wno-unused-parameter',
             '-Wno-type-limits',
+            '-Wdeclaration-after-statement',
             '-Wvla',
             '-Wpointer-arith'
             ]
